@@ -62,7 +62,7 @@ router.get('/users', async (req, res) => {
 router.get('/health', (req, res) => {
   res.json({
     status: 'YeetSmash API is running!',
-    version: '1.0.0',
+    version: '0.1.0',
     database: 'connected',
     timestamp: new Date().toISOString()
   });
