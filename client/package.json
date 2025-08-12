@@ -1,9 +1,10 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "npm start"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
-if(process.env.NODE_ENV !== 'production'){
-    const dotenv = require('dotenv').config();
-}
-
+// if(process.env.NODE_ENV !== 'production'){
+//     const dotenv =
+// }
+ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -70,6 +70,7 @@ app.listen( PORT || 8080, ()=>{
     console.log('both react and api are using on the same port.'); 
   }
   else{
+    console.log(process.env.NODE_ENV);
     console.log('react is lookin fire in 3000');
     console.log('server in 8080, all put together by CORS!🔥'); 
   }

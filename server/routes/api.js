@@ -43,7 +43,8 @@ router.get('/users', async (req, res) => {
     // Replace with your actual User model
     // const users = await User.find();
     const users = [
-      { id: 1, name: 'Test User', email: 'test@yeetsmash.com' }
+      { id: 1, name: 'Test User', email: 'test@yeetsmash.com' },
+      {id: 2 , name : 'arvid' , email : 'arvid@yeetmail.com'}
     ];
     
     res.json({
@@ -59,13 +60,13 @@ router.get('/users', async (req, res) => {
 });
 
 // Health check for your API
-router.get('/health', (req, res) => {
-  res.json({
-    status: 'YeetSmash API is running!',
-    version: '0.1.0',
-    database: 'connected',
-    timestamp: new Date().toISOString()
-  });
-});
+// router.get('/health', (req, res) => {
+//   res.json({
+//     status: 'YeetSmash API is running!',
+//     version: '0.1.0',
+//     database: 'connected',
+//     timestamp: new Date().toISOString()
+//   });
+// });
 
 module.exports = router;
