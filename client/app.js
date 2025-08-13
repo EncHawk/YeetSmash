@@ -36,5 +36,19 @@ function App(){
       setLoading(false);
     }
   }  
+  
+  return (
+    <div>
+      {loading && <p>loading...</p>}
+      {error && <p>error! {error}</p>}
 
+      <ul>
+        {users.map((u, id)=>{
+          <li key= {id}>
+            {u.name}
+          </li>
+        })}
+      </ul>
+    </div>
+  );
 }
