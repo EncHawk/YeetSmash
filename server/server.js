@@ -5,7 +5,15 @@ import dotenv from "dotenv";
 import express from "express";
 import path from 'path';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
+
 const app = express();
+
+//ES modules has no scope for __dirname, so we declare vars for it.
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // built imports 
 // cant use require if we are using ESM modules, type: module->pjson
