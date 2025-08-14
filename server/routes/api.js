@@ -1,13 +1,13 @@
 // routes/api.js - Convert your old routes to API endpoints
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+const apiRouter = express.Router();
 
 // Example: Convert your old index route to API
 // Old: app.get('/', indexRouter) rendered EJS
 // New: API endpoint that returns JSON
 
 // GET /api/home - Homepage data
-router.get('/', (req, res) => {
+apiRouter.get('/', (req, res) => {
   // Instead of res.render(), return JSON data
   res.json({
     success: true,
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/page/:id - Dynamic page data  
-router.get('/page/:id', (req, res) => {
+apiRouter.get('/page/:id', (req, res) => {
   const { id } = req.params;
   
   // Simulate getting page data (replace with real MongoDB query)
@@ -38,10 +38,11 @@ router.get('/page/:id', (req, res) => {
 });
 
 // Example: If you had user functionality
-router.get('/users', async (req, res) => {
+apiRouter.get('/users', async (req, res) => {
   try {
-    // Replace with your actual User model
+    // configure mongo, get users inside the users array then sent it to react
     // const users = await User.find();
+
     const users = [
       { id: 1, name: 'Test User', email: 'test@yeetsmash.com' },
       {id: 2 , name : 'arvid' , email : 'arvid@yeetmail.com'}
@@ -69,4 +70,4 @@ router.get('/users', async (req, res) => {
 //   });
 // });
 
-module.exports = router;
+export default apiRouter;

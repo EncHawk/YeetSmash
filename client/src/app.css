@@ -1,0 +1,20 @@
+body{
+  background: radial-gradient(125% 125% at 50% 100%, #000000 40%, #350136 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.outer-div{
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  width: 50vw;
+  height:auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:white;
+}
+
+
+#root{
+  max-width: 50%;
+}
