@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: yeetsmash
+    env: node
+    plan: free
+    buildCommand: npm ci && cd server && npm ci && cd ../client && npm ci && npm run build
+    startCommand: node server/server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Set DATABASE_URL in Render dashboard or use a secret reference like below
+      # - key: DATABASE_URL
+      #   fromSecret: your-database-url-secret  

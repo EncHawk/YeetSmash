@@ -28,14 +28,14 @@ app.use(express.json());
 // app.get('/', indexRouter); // put the landing page here:
 // app.get('/:id', indexRouter);// we need a few routes, 
 
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
 
 // if its production it runs on the same port, express renders the static files.
 if(process.env.NODE_ENV === 'production'){ 
-  app.use(express.static(path.join(__dirname, './client/build'))); // to have react stuff be broken into static js 
+  app.use(express.static(path.join(__dirname, '../client/build'))); // to have react stuff be broken into static js 
   app.get('*',(req,res)=>{
     console.log(req.statusCode);
-    res.sendFile(path.join(__dirname, './client/public/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
 }
 else{
