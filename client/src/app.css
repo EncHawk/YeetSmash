@@ -8,13 +8,90 @@ body{
   display: flex;
   align-items: center;
   background-color: transparent;
-  width: 50vw;
   height:auto;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color:white;
+  color:rgb(255, 255, 255);
+}
+
+ul{
+  text-wrap: nowrap;
+}
+
+#root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+input{
+  background-color: transparent;
+  border: rgba(191, 0, 244, 0.362) solid 1px;
+  font-weight: 500;
+  font-size: medium;
+  padding: 2px 5px;
+  border-radius: 3px;;
+
+
+  transition: background-color .8s , box-shadow .7s;
+}
+input:hover{
+  background-color: rgba(221, 221, 221, 0.114);
+  box-shadow: 2px 2px 75px rgba(1, 255, 1, 0.389);
+}
+
+input:focus{
+  background-color: rgba(221, 221, 221, 0.204);
+  border: transparent solid 1px;
+  outline:none;
+}
+
+.input-divs{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 20vw;
+  max-width: 600px;
+  padding: 20px 10px;
+  border: 1px white solid;
+  overflow:hidden;
+}
+
+.input-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 2px;
 }
 
 
-#root{
-  max-width: 50%;
+.submit-button{
+  background-color: rgb(251, 222, 1);
+  font-weight:600;
+  font-size: medium;
+  color:black;
+  transition: background-color .8s , color .7s;
+}
+.submit-button:hover{
+  background-color: rgb(255, 234, 75, .980);
+  color:rgb(1, 104, 1);
+
+}
+
+.hero-text{
+  color:rgb(223, 223, 223);
+  text-align: justify;
+  text-justify:inter-cluster;
+  text-shadow: 1px 1px 3px rgb(71, 1, 169),
+  1px 1px 8px rgb(133, 133, 133),
+  2px 2px 10px rgb(122, 122, 122);
+  margin-top: 200px;
+  margin-bottom: 500px;
+}
+
+.waitlist{
+  color:limegreen;
+  text-shadow: 0px 0px 0px;
+  font-weight:300 ;
+  font-family:cursive; 
 }

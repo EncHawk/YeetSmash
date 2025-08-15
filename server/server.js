@@ -1,26 +1,26 @@
+// {
 // if(process.env.NODE_ENV !== 'production'){
-//     const dotenv =
+// //     const dotenv =
+// // }
+// //ES modules has no scope for __dirname, so we declare vars for it.
+// // cant use require if we are using ESM modules, type: module->pjson
+// // we need cors when we are in development to have both port 3000 and react port to 
+// // connect and share data
 // }
 import dotenv from "dotenv";
-import express from "express";
+import express, { urlencoded } from "express";
 import path from 'path';
 import cors from 'cors';
+
 import { fileURLToPath } from 'url';
 
+import apiRoutes from './routes/api.js' 
+import connectDB from './config/db.js';
+// import testConnection from "./testDB.js";
+
 const app = express();
-
-//ES modules has no scope for __dirname, so we declare vars for it.
-
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// built imports 
-// cant use require if we are using ESM modules, type: module->pjson
- import apiRouter from './routes/api.js' 
-import connectDB from './config/db.js';
-// we need cors when we are in development to have both port 3000 and react port to 
-// connect and share data
 
 if(process.env.NODE_ENV !== "production"){ 
   app.use(cors({
@@ -29,21 +29,23 @@ if(process.env.NODE_ENV !== "production"){
   }));
 }
 
-connectDB();
+dotenv.config();
 
+connectDB();
+// testConnection();
+
+app.use(urlencoded({extended:true}))
 app.use(express.json());
 // all the rendering is handled by React, we just use this as an api to send json data to React.
-// app.get('/', indexRouter); // put the landing page here:
-// app.get('/:id', indexRouter);// we need a few routes, 
 
-app.use('/api', apiRouter);
+app.use('/', apiRoutes);
 
 // if its production it runs on the same port, express renders the static files.
 if(process.env.NODE_ENV === 'production'){ 
-  app.use(express.static(path.join(__dirname, '../client/build'))); // to have react stuff be broken into static js 
+  app.use(express.static(path.join(__dirname, '../client/public'))); // to have react stuff be broken into static js 
   app.get('*',(req,res)=>{
     console.log(req.statusCode);
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/public/index.html')); // /build/.html to public / matching the directory.
   });
 }
 else{
@@ -55,10 +57,10 @@ else{
   });
 }
 
-const PORT = process.env.PORT;
 
-app.listen( PORT || 8080, ()=>{
-  console.log(`server running on port ${PORT}`);
+
+app.listen( process.env.PORT || 8080, ()=>{
+  console.log(`server running on port ${process.env.PORT}`);
   if(process.env.NODE_ENV==='production'){
     console.log('both react and api are using on the same port.'); 
   }
@@ -68,13 +70,3 @@ app.listen( PORT || 8080, ()=>{
     console.log('server in 8080, all put together by CORS!🔥'); 
   }
 });
-
-// app.use(express.json());
-// app.get('/', (req,res)=>{
-//   console.log(req.headers);
-//   res.send('<h1> Hello from the other side.</h1>');
-// });
-
-// app.listen(PORT,()=>{
-//   console.log(`running on http://localhost:${PORT}`);
-// });
