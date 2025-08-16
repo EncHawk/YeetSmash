@@ -7,6 +7,11 @@ export default defineConfig({
     outDir: 'dist', // or 'build' if you prefer
   },
   server: {
-    port: 8080,
+    port: 3000,
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /src\/.*\.[jt]sx?$/,
+    exclude: []
   }
 })

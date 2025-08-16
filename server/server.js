@@ -38,7 +38,7 @@ app.use(urlencoded({extended:true}))
 app.use(express.json());
 // all the rendering is handled by React, we just use this as an api to send json data to React.
 
-app.use('/', apiRoutes);
+app.use('/api', apiRoutes);
 
 // if its production it runs on the same port, express renders the static files.
 if(process.env.NODE_ENV === 'production'){ 

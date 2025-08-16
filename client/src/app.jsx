@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './app.css';
-import Form from './components/form.js';
+import Form from './components/form.jsx';
 
 // require('dotenv').config();
 // const API_URL = process.env.NODE_ENV === 'production'

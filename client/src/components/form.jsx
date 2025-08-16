@@ -16,7 +16,7 @@ export default function Form(){
   const email = document.querySelector('.email-input').value;
   
   try{
-    const response = await fetch (`${API_URL}/userEntry`,{
+    const response = await fetch (`${API_URL}/api/userEntry`,{
     method : "POST",
     headers : {"content-type" : "application/json"},
     body : JSON.stringify({name, email})
