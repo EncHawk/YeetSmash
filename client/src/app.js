@@ -3,9 +3,9 @@ import './app.css';
 import Form from './components/form.js';
 
 // require('dotenv').config();
-const API_URL = process.env.NODE_ENV === 'production'
-? '/'
-: 'http://localhost:8080' // if its in dev we host it in 8080, in production its on the same portvejs magic
+// const API_URL = process.env.NODE_ENV === 'production'
+// ? '/'
+// : 'http://localhost:8080' // if its in dev we host it in 8080, in production its on the same portvejs magic
 
 // const fetchUsers = async ()=>{
     
