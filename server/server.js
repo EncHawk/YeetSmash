@@ -43,7 +43,7 @@ app.use('/', apiRoutes);
 // if its production it runs on the same port, express renders the static files.
 if(process.env.NODE_ENV === 'production'){ 
   app.use(express.static(path.join(__dirname, '../client/public'))); // to have react stuff be broken into static js 
-  app.all('/*',(req,res)=>{
+  app.get('/*',(req,res)=>{
     console.log(req.statusCode);
     res.sendFile(path.join(__dirname, '../client/public/index.html')); // /build/.html to public / matching the directory.
   });
